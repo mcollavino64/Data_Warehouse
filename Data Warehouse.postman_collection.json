@@ -1,0 +1,448 @@
+{
+	"info": {		
+		"name": "Data Warehouse",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Post Ingreso",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"usuario\": \"Macollavino\",\r\n\"contrasena\":\"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/v1/ingreso/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"v1",
+								"ingreso",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Traer Usuarios",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoiTGVhbmRyb3VubyIsImFkbWluIjoxLCJpZCI6MSwiaWF0IjoxNjI5NjY1Nzg1LCJleHAiOjE2Mjk3ODU3ODV9.Y7j6TVe61smm5M5XnUx06FxfCSsAAphcHhct42rzVUwHEPslm2bTgj5QXB7GTIqc2lmKAmFo_Eo5RzSGkhC5oA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": 1,\r\n        \"usuario\": \"Macollavino\",\r\n        \"nombre\": \"Mariano\",\r\n        \"apellido\": \"collavino\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/v1/usuarios",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"v1",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Usuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoiTGVhbmRyb3VubyIsImFkbWluIjoxLCJpZCI6MSwiaWF0IjoxNjI5NjY1Nzg1LCJleHAiOjE2Mjk3ODU3ODV9.Y7j6TVe61smm5M5XnUx06FxfCSsAAphcHhct42rzVUwHEPslm2bTgj5QXB7GTIqc2lmKAmFo_Eo5RzSGkhC5oA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoiTGVhbmRyb3VubyIsImFkbWluIjoxLCJpZCI6MSwiaWF0IjoxNjI5NjY1Nzg1LCJleHAiOjE2Mjk3ODU3ODV9.Y7j6TVe61smm5M5XnUx06FxfCSsAAphcHhct42rzVUwHEPslm2bTgj5QXB7GTIqc2lmKAmFo_Eo5RzSGkhC5oA",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "     {\r\n        \"usuario\": \"Susanit\",\r\n        \"nombre\": \"Susana\",\r\n        \"apellido\": \"Torio\",\r\n        \"email\":\"sus@srto.com\",\r\n        \"contrasena\":123,\r\n        \"telefono\": 313113131,\r\n        \"domicilio\": \"Calle45 678\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/v1/usuarios/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"v1",
+								"usuarios",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Usuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoiTGVhbmRyb3VubyIsImFkbWluIjoxLCJpZCI6MSwiaWF0IjoxNjI5NjY1Nzg1LCJleHAiOjE2Mjk3ODU3ODV9.Y7j6TVe61smm5M5XnUx06FxfCSsAAphcHhct42rzVUwHEPslm2bTgj5QXB7GTIqc2lmKAmFo_Eo5RzSGkhC5oA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"usuario\": \"Bartolito\",\r\n        \"nombre\": \"Bartolo Meoh\",\r\n        \"apellido\": \"Paredes\",\r\n        \"email\":\"barto@lito.com\",\r\n        \"contrasena\":\"secret\",\r\n        \"telefono\": 1233652,\r\n        \"domicilio\": \"la granja 236\",\r\n        \"admin\": 1\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/v1/usuarios/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"v1",
+								"usuarios",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Usuarios",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoiTGVhbmRyb3VubyIsImFkbWluIjoxLCJpZCI6MSwiaWF0IjoxNjI5NjY1Nzg1LCJleHAiOjE2Mjk3ODU3ODV9.Y7j6TVe61smm5M5XnUx06FxfCSsAAphcHhct42rzVUwHEPslm2bTgj5QXB7GTIqc2lmKAmFo_Eo5RzSGkhC5oA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"usuario\": \"Bartolito\",\r\n        \"nombre\": \"Bartolo Meoh\",\r\n        \"apellido\": \"Paredes\",\r\n        \"email\":\"barto@lito.com\",\r\n        \"contrasena\":\"secret\",\r\n        \"telefono\": 1233652,\r\n        \"domicilio\": \"la granja 236\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/v1/usuarios",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"v1",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Contactos",
+			"item": [
+				{
+					"name": "Traer Contactos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoiTGVhbmRyb3VubyIsImFkbWluIjoxLCJpZCI6MSwiaWF0IjoxNjI5NjY1Nzg1LCJleHAiOjE2Mjk3ODU3ODV9.Y7j6TVe61smm5M5XnUx06FxfCSsAAphcHhct42rzVUwHEPslm2bTgj5QXB7GTIqc2lmKAmFo_Eo5RzSGkhC5oA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoiTGVhbmRyb3VubyIsImFkbWluIjoxLCJpZCI6MSwiaWF0IjoxNjI5NjY1Nzg1LCJleHAiOjE2Mjk3ODU3ODV9.Y7j6TVe61smm5M5XnUx06FxfCSsAAphcHhct42rzVUwHEPslm2bTgj5QXB7GTIqc2lmKAmFo_Eo5RzSGkhC5oA",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:3001/v1/contactos",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"v1",
+								"contactos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Contacto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoiTGVhbmRyb3VubyIsImFkbWluIjoxLCJpZCI6MSwiaWF0IjoxNjI5NjY1Nzg1LCJleHAiOjE2Mjk3ODU3ODV9.Y7j6TVe61smm5M5XnUx06FxfCSsAAphcHhct42rzVUwHEPslm2bTgj5QXB7GTIqc2lmKAmFo_Eo5RzSGkhC5oA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"nombre\": \"SoloMeo\",\r\n        \"apellido\": \"Paredes\",\r\n        \"email\": \"solo@meo.com\",\r\n        \"telefono\": \"2121\",\r\n        \"pais\": \"Paraguay\",\r\n        \"region\": \"America\",\r\n        \"compania\": \"LimpiaParedes S.A\",\r\n        \"cargo\": \"Limpiador de Paredes\",\r\n        \"canal_preferido\": \"{telefono}\",\r\n        \"foto\": \"solomeo.jpg\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/v1/contactos",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"v1",
+								"contactos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Contactos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoiTGVhbmRyb3VubyIsImFkbWluIjoxLCJpZCI6MSwiaWF0IjoxNjI5NjY1Nzg1LCJleHAiOjE2Mjk3ODU3ODV9.Y7j6TVe61smm5M5XnUx06FxfCSsAAphcHhct42rzVUwHEPslm2bTgj5QXB7GTIqc2lmKAmFo_Eo5RzSGkhC5oA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"id\": 1,\r\n        \"nombre\": \"Mariano\",\r\n        \"apellido\": \"collavino\",\r\n        \"email\": \"mcollavino64@gmail.com\",\r\n        \"telefono\": \"123456789\",\r\n        \"pais\": \"Argentina\",\r\n        \"region\": \"America\",\r\n        \"compania\": \"Macollavino\",\r\n        \"cargo\": \"Desarrollador Full Stack\",\r\n        \"canal_preferido\": \"{telefono, email}\",\r\n        \"foto\": \"marianoxx.jpg\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/v1/contactos",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"v1",
+								"contactos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Contactos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoiTGVhbmRyb3VubyIsImFkbWluIjoxLCJpZCI6MSwiaWF0IjoxNjI5NjY1Nzg1LCJleHAiOjE2Mjk3ODU3ODV9.Y7j6TVe61smm5M5XnUx06FxfCSsAAphcHhct42rzVUwHEPslm2bTgj5QXB7GTIqc2lmKAmFo_Eo5RzSGkhC5oA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n    \"id\":8\r\n\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/v1/contactos",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"v1",
+								"contactos"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Paises",
+			"item": [
+				{
+					"name": "Crear Paises",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoiTGVhbmRyb3VubyIsImFkbWluIjoxLCJpZCI6MSwiaWF0IjoxNjI5NjY1Nzg1LCJleHAiOjE2Mjk3ODU3ODV9.Y7j6TVe61smm5M5XnUx06FxfCSsAAphcHhct42rzVUwHEPslm2bTgj5QXB7GTIqc2lmKAmFo_Eo5RzSGkhC5oA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"name\": \"Afghanistan\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Southern Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Åland Islands\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Northern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Albania\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Southern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Algeria\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Northern Africa\"\r\n    },\r\n    {\r\n        \"name\": \"American Samoa\",\r\n        \"region\": \"Oceania\",\r\n        \"subregion\": \"Polynesia\"\r\n    },\r\n    {\r\n        \"name\": \"Andorra\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Southern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Angola\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Middle Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Anguilla\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Caribbean\"\r\n    },\r\n    {\r\n        \"name\": \"Antarctica\",\r\n        \"region\": \"Polar\",\r\n        \"subregion\": \"\"\r\n    },\r\n    {\r\n        \"name\": \"Antigua and Barbuda\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Caribbean\"\r\n    },\r\n    {\r\n        \"name\": \"Argentina\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"South America\"\r\n    },\r\n    {\r\n        \"name\": \"Armenia\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Western Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Aruba\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Caribbean\"\r\n    },\r\n    {\r\n        \"name\": \"Australia\",\r\n        \"region\": \"Oceania\",\r\n        \"subregion\": \"Australia and New Zealand\"\r\n    },\r\n    {\r\n        \"name\": \"Austria\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Western Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Azerbaijan\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Western Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Bahamas\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Caribbean\"\r\n    },\r\n    {\r\n        \"name\": \"Bahrain\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Western Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Bangladesh\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Southern Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Barbados\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Caribbean\"\r\n    },\r\n    {\r\n        \"name\": \"Belarus\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Eastern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Belgium\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Western Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Belize\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Central America\"\r\n    },\r\n    {\r\n        \"name\": \"Benin\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Western Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Bermuda\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Northern America\"\r\n    },\r\n    {\r\n        \"name\": \"Bhutan\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Southern Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Bolivia (Plurinational State of)\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"South America\"\r\n    },\r\n    {\r\n        \"name\": \"Bonaire, Sint Eustatius and Saba\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Caribbean\"\r\n    },\r\n    {\r\n        \"name\": \"Bosnia and Herzegovina\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Southern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Botswana\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Southern Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Bouvet Island\",\r\n        \"region\": \"\",\r\n        \"subregion\": \"\"\r\n    },\r\n    {\r\n        \"name\": \"Brazil\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"South America\"\r\n    },\r\n    {\r\n        \"name\": \"British Indian Ocean Territory\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Eastern Africa\"\r\n    },\r\n    {\r\n        \"name\": \"United States Minor Outlying Islands\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Northern America\"\r\n    },\r\n    {\r\n        \"name\": \"Virgin Islands (British)\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Caribbean\"\r\n    },\r\n    {\r\n        \"name\": \"Virgin Islands (U.S.)\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Caribbean\"\r\n    },\r\n    {\r\n        \"name\": \"Brunei Darussalam\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"South-Eastern Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Bulgaria\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Eastern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Burkina Faso\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Western Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Burundi\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Eastern Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Cambodia\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"South-Eastern Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Cameroon\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Middle Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Canada\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Northern America\"\r\n    },\r\n    {\r\n        \"name\": \"Cabo Verde\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Western Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Cayman Islands\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Caribbean\"\r\n    },\r\n    {\r\n        \"name\": \"Central African Republic\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Middle Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Chad\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Middle Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Chile\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"South America\"\r\n    },\r\n    {\r\n        \"name\": \"China\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Eastern Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Christmas Island\",\r\n        \"region\": \"Oceania\",\r\n        \"subregion\": \"Australia and New Zealand\"\r\n    },\r\n    {\r\n        \"name\": \"Cocos (Keeling) Islands\",\r\n        \"region\": \"Oceania\",\r\n        \"subregion\": \"Australia and New Zealand\"\r\n    },\r\n    {\r\n        \"name\": \"Colombia\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"South America\"\r\n    },\r\n    {\r\n        \"name\": \"Comoros\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Eastern Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Congo\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Middle Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Congo (Democratic Republic of the)\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Middle Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Cook Islands\",\r\n        \"region\": \"Oceania\",\r\n        \"subregion\": \"Polynesia\"\r\n    },\r\n    {\r\n        \"name\": \"Costa Rica\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Central America\"\r\n    },\r\n    {\r\n        \"name\": \"Croatia\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Southern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Cuba\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Caribbean\"\r\n    },\r\n    {\r\n        \"name\": \"Curaçao\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Caribbean\"\r\n    },\r\n    {\r\n        \"name\": \"Cyprus\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Southern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Czech Republic\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Eastern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Denmark\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Northern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Djibouti\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Eastern Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Dominica\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Caribbean\"\r\n    },\r\n    {\r\n        \"name\": \"Dominican Republic\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Caribbean\"\r\n    },\r\n    {\r\n        \"name\": \"Ecuador\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"South America\"\r\n    },\r\n    {\r\n        \"name\": \"Egypt\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Northern Africa\"\r\n    },\r\n    {\r\n        \"name\": \"El Salvador\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Central America\"\r\n    },\r\n    {\r\n        \"name\": \"Equatorial Guinea\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Middle Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Eritrea\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Eastern Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Estonia\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Northern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Ethiopia\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Eastern Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Falkland Islands (Malvinas)\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"South America\"\r\n    },\r\n    {\r\n        \"name\": \"Faroe Islands\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Northern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Fiji\",\r\n        \"region\": \"Oceania\",\r\n        \"subregion\": \"Melanesia\"\r\n    },\r\n    {\r\n        \"name\": \"Finland\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Northern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"France\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Western Europe\"\r\n    },\r\n    {\r\n        \"name\": \"French Guiana\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"South America\"\r\n    },\r\n    {\r\n        \"name\": \"French Polynesia\",\r\n        \"region\": \"Oceania\",\r\n        \"subregion\": \"Polynesia\"\r\n    },\r\n    {\r\n        \"name\": \"French Southern Territories\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Southern Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Gabon\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Middle Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Gambia\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Western Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Georgia\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Western Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Germany\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Western Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Ghana\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Western Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Gibraltar\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Southern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Greece\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Southern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Greenland\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Northern America\"\r\n    },\r\n    {\r\n        \"name\": \"Grenada\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Caribbean\"\r\n    },\r\n    {\r\n        \"name\": \"Guadeloupe\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Caribbean\"\r\n    },\r\n    {\r\n        \"name\": \"Guam\",\r\n        \"region\": \"Oceania\",\r\n        \"subregion\": \"Micronesia\"\r\n    },\r\n    {\r\n        \"name\": \"Guatemala\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Central America\"\r\n    },\r\n    {\r\n        \"name\": \"Guernsey\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Northern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Guinea\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Western Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Guinea-Bissau\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Western Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Guyana\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"South America\"\r\n    },\r\n    {\r\n        \"name\": \"Haiti\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Caribbean\"\r\n    },\r\n    {\r\n        \"name\": \"Heard Island and McDonald Islands\",\r\n        \"region\": \"\",\r\n        \"subregion\": \"\"\r\n    },\r\n    {\r\n        \"name\": \"Holy See\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Southern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Honduras\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Central America\"\r\n    },\r\n    {\r\n        \"name\": \"Hong Kong\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Eastern Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Hungary\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Eastern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Iceland\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Northern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"India\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Southern Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Indonesia\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"South-Eastern Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Côte d'Ivoire\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Western Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Iran (Islamic Republic of)\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Southern Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Iraq\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Western Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Ireland\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Northern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Isle of Man\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Northern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Israel\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Western Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Italy\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Southern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Jamaica\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Caribbean\"\r\n    },\r\n    {\r\n        \"name\": \"Japan\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Eastern Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Jersey\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Northern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Jordan\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Western Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Kazakhstan\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Central Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Kenya\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Eastern Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Kiribati\",\r\n        \"region\": \"Oceania\",\r\n        \"subregion\": \"Micronesia\"\r\n    },\r\n    {\r\n        \"name\": \"Kuwait\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Western Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Kyrgyzstan\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Central Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Lao People's Democratic Republic\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"South-Eastern Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Latvia\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Northern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Lebanon\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Western Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Lesotho\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Southern Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Liberia\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Western Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Libya\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Northern Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Liechtenstein\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Western Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Lithuania\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Northern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Luxembourg\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Western Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Macao\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Eastern Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Macedonia (the former Yugoslav Republic of)\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Southern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Madagascar\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Eastern Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Malawi\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Eastern Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Malaysia\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"South-Eastern Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Maldives\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Southern Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Mali\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Western Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Malta\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Southern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Marshall Islands\",\r\n        \"region\": \"Oceania\",\r\n        \"subregion\": \"Micronesia\"\r\n    },\r\n    {\r\n        \"name\": \"Martinique\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Caribbean\"\r\n    },\r\n    {\r\n        \"name\": \"Mauritania\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Western Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Mauritius\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Eastern Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Mayotte\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Eastern Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Mexico\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Central America\"\r\n    },\r\n    {\r\n        \"name\": \"Micronesia (Federated States of)\",\r\n        \"region\": \"Oceania\",\r\n        \"subregion\": \"Micronesia\"\r\n    },\r\n    {\r\n        \"name\": \"Moldova (Republic of)\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Eastern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Monaco\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Western Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Mongolia\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Eastern Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Montenegro\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Southern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Montserrat\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Caribbean\"\r\n    },\r\n    {\r\n        \"name\": \"Morocco\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Northern Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Mozambique\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Eastern Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Myanmar\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"South-Eastern Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Namibia\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Southern Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Nauru\",\r\n        \"region\": \"Oceania\",\r\n        \"subregion\": \"Micronesia\"\r\n    },\r\n    {\r\n        \"name\": \"Nepal\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Southern Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Netherlands\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Western Europe\"\r\n    },\r\n    {\r\n        \"name\": \"New Caledonia\",\r\n        \"region\": \"Oceania\",\r\n        \"subregion\": \"Melanesia\"\r\n    },\r\n    {\r\n        \"name\": \"New Zealand\",\r\n        \"region\": \"Oceania\",\r\n        \"subregion\": \"Australia and New Zealand\"\r\n    },\r\n    {\r\n        \"name\": \"Nicaragua\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Central America\"\r\n    },\r\n    {\r\n        \"name\": \"Niger\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Western Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Nigeria\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Western Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Niue\",\r\n        \"region\": \"Oceania\",\r\n        \"subregion\": \"Polynesia\"\r\n    },\r\n    {\r\n        \"name\": \"Norfolk Island\",\r\n        \"region\": \"Oceania\",\r\n        \"subregion\": \"Australia and New Zealand\"\r\n    },\r\n    {\r\n        \"name\": \"Korea (Democratic People's Republic of)\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Eastern Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Northern Mariana Islands\",\r\n        \"region\": \"Oceania\",\r\n        \"subregion\": \"Micronesia\"\r\n    },\r\n    {\r\n        \"name\": \"Norway\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Northern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Oman\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Western Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Pakistan\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Southern Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Palau\",\r\n        \"region\": \"Oceania\",\r\n        \"subregion\": \"Micronesia\"\r\n    },\r\n    {\r\n        \"name\": \"Palestine, State of\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Western Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Panama\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Central America\"\r\n    },\r\n    {\r\n        \"name\": \"Papua New Guinea\",\r\n        \"region\": \"Oceania\",\r\n        \"subregion\": \"Melanesia\"\r\n    },\r\n    {\r\n        \"name\": \"Paraguay\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"South America\"\r\n    },\r\n    {\r\n        \"name\": \"Peru\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"South America\"\r\n    },\r\n    {\r\n        \"name\": \"Philippines\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"South-Eastern Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Pitcairn\",\r\n        \"region\": \"Oceania\",\r\n        \"subregion\": \"Polynesia\"\r\n    },\r\n    {\r\n        \"name\": \"Poland\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Eastern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Portugal\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Southern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Puerto Rico\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Caribbean\"\r\n    },\r\n    {\r\n        \"name\": \"Qatar\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Western Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Republic of Kosovo\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Eastern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Réunion\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Eastern Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Romania\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Eastern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Russian Federation\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Eastern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Rwanda\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Eastern Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Saint Barthélemy\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Caribbean\"\r\n    },\r\n    {\r\n        \"name\": \"Saint Helena, Ascension and Tristan da Cunha\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Western Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Saint Kitts and Nevis\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Caribbean\"\r\n    },\r\n    {\r\n        \"name\": \"Saint Lucia\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Caribbean\"\r\n    },\r\n    {\r\n        \"name\": \"Saint Martin (French part)\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Caribbean\"\r\n    },\r\n    {\r\n        \"name\": \"Saint Pierre and Miquelon\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Northern America\"\r\n    },\r\n    {\r\n        \"name\": \"Saint Vincent and the Grenadines\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Caribbean\"\r\n    },\r\n    {\r\n        \"name\": \"Samoa\",\r\n        \"region\": \"Oceania\",\r\n        \"subregion\": \"Polynesia\"\r\n    },\r\n    {\r\n        \"name\": \"San Marino\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Southern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Sao Tome and Principe\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Middle Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Saudi Arabia\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Western Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Senegal\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Western Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Serbia\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Southern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Seychelles\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Eastern Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Sierra Leone\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Western Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Singapore\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"South-Eastern Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Sint Maarten (Dutch part)\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Caribbean\"\r\n    },\r\n    {\r\n        \"name\": \"Slovakia\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Eastern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Slovenia\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Southern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Solomon Islands\",\r\n        \"region\": \"Oceania\",\r\n        \"subregion\": \"Melanesia\"\r\n    },\r\n    {\r\n        \"name\": \"Somalia\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Eastern Africa\"\r\n    },\r\n    {\r\n        \"name\": \"South Africa\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Southern Africa\"\r\n    },\r\n    {\r\n        \"name\": \"South Georgia and the South Sandwich Islands\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"South America\"\r\n    },\r\n    {\r\n        \"name\": \"Korea (Republic of)\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Eastern Asia\"\r\n    },\r\n    {\r\n        \"name\": \"South Sudan\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Middle Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Spain\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Southern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Sri Lanka\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Southern Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Sudan\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Northern Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Suriname\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"South America\"\r\n    },\r\n    {\r\n        \"name\": \"Svalbard and Jan Mayen\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Northern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Swaziland\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Southern Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Sweden\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Northern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Switzerland\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Western Europe\"\r\n    },\r\n    {\r\n        \"name\": \"Syrian Arab Republic\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Western Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Taiwan\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Eastern Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Tajikistan\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Central Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Tanzania, United Republic of\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Eastern Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Thailand\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"South-Eastern Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Timor-Leste\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"South-Eastern Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Togo\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Western Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Tokelau\",\r\n        \"region\": \"Oceania\",\r\n        \"subregion\": \"Polynesia\"\r\n    },\r\n    {\r\n        \"name\": \"Tonga\",\r\n        \"region\": \"Oceania\",\r\n        \"subregion\": \"Polynesia\"\r\n    },\r\n    {\r\n        \"name\": \"Trinidad and Tobago\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Caribbean\"\r\n    },\r\n    {\r\n        \"name\": \"Tunisia\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Northern Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Turkey\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Western Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Turkmenistan\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Central Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Turks and Caicos Islands\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Caribbean\"\r\n    },\r\n    {\r\n        \"name\": \"Tuvalu\",\r\n        \"region\": \"Oceania\",\r\n        \"subregion\": \"Polynesia\"\r\n    },\r\n    {\r\n        \"name\": \"Uganda\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Eastern Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Ukraine\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Eastern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"United Arab Emirates\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Western Asia\"\r\n    },\r\n    {\r\n        \"name\": \"United Kingdom of Great Britain and Northern Ireland\",\r\n        \"region\": \"Europe\",\r\n        \"subregion\": \"Northern Europe\"\r\n    },\r\n    {\r\n        \"name\": \"United States of America\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"Northern America\"\r\n    },\r\n    {\r\n        \"name\": \"Uruguay\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"South America\"\r\n    },\r\n    {\r\n        \"name\": \"Uzbekistan\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Central Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Vanuatu\",\r\n        \"region\": \"Oceania\",\r\n        \"subregion\": \"Melanesia\"\r\n    },\r\n    {\r\n        \"name\": \"Venezuela (Bolivarian Republic of)\",\r\n        \"region\": \"Americas\",\r\n        \"subregion\": \"South America\"\r\n    },\r\n    {\r\n        \"name\": \"Viet Nam\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"South-Eastern Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Wallis and Futuna\",\r\n        \"region\": \"Oceania\",\r\n        \"subregion\": \"Polynesia\"\r\n    },\r\n    {\r\n        \"name\": \"Western Sahara\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Northern Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Yemen\",\r\n        \"region\": \"Asia\",\r\n        \"subregion\": \"Western Asia\"\r\n    },\r\n    {\r\n        \"name\": \"Zambia\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Eastern Africa\"\r\n    },\r\n    {\r\n        \"name\": \"Zimbabwe\",\r\n        \"region\": \"Africa\",\r\n        \"subregion\": \"Eastern Africa\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/v1/paises",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"v1",
+								"paises"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
