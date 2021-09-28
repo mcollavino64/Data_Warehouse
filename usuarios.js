@@ -1,5 +1,5 @@
 const getHtmlUsuarios = (usuarios) => {
-
+    let arrayDelete = [];
     let html = "";
 
     if (usuarios.error) {
@@ -13,6 +13,7 @@ const getHtmlUsuarios = (usuarios) => {
         html = `<table class="table table-bordered table-hover dt-responsive tablas">
     <thead>
       <tr>
+        <th scope="col"></th>
         <th scope="col">#</th>
         <th scope="col">Nombre</th>
         <th scope="col">Apellido</th>
@@ -26,9 +27,11 @@ const getHtmlUsuarios = (usuarios) => {
     <tbody>
   `;
 
-        usuarios.forEach(usuario => {
-            console.log(localStorage.getItem("Admin"))
+        
+
+        usuarios.forEach(usuario => {            
             html += `<tr>
+         <th><input type="checkbox" id="${usuario.id}" onclick="showid(id)" ></th>
          <th scope="row">${usuario.id}</th>
          <td>${usuario.nombre}</td>
          <td>${usuario.apellido}</td>
@@ -39,7 +42,7 @@ const getHtmlUsuarios = (usuarios) => {
             if (localStorage.getItem("Admin") == true) {
                 html += `
          <td>
-         <button type="button" class="btn btn-outline-warning btn-sm " idUsuario="${usuario.id}" onClick="vistaEditarUsuario(event)">Editar</button>
+        <button type="button" class="btn btn-outline-warning btn-sm " idUsuario="${usuario.id}" onClick="vistaEditarUsuario(event)">Editar</button>
          <button type="button" class="btn btn-outline-danger btn-sm btnEliminarUsuario" nombreUsuario="${usuario.nombre + " " + usuario.apellido}" idUsuario="${usuario.id}" onClick="eliminarUsuario(event)" >Eliminar</button>
          </td>`}
             html += `</tr>`
@@ -72,7 +75,7 @@ btnUsuarios.addEventListener('click', async (e) => {
       <input type="text" class="form-control col-4" id="emailBusquedaUsuario" placeholder="Email">
       <input type="text" class="form-control col-4" id="usuarioBusquedaUsuario" placeholder="Usuario">
       <button type="submit" class="btn btn-primary" id="buscarContacto" onClick="buscarUsuario(event)" >Buscar</button>
-      <button type="reset" class="btn btn-danger" id="borrar" >Borrar</button>
+      <button type="reset" class="btn btn-danger" id="btn_borrar" onClick="borrarSeleccion(event)" >Eliminar Seleccionados</button>
       </div>
     </form> `
 
@@ -324,3 +327,74 @@ btnEditarUsuario.addEventListener('click', async (e) => {
 
 
 });
+
+//borrar usuarios seleccion multiple
+let arrayDelete=[]
+
+function showid(id){
+    var i = arrayDelete.indexOf(id);
+
+    if(i !== -1){
+        arrayDelete.splice(i,1);
+    }else{
+        arrayDelete.push(id);
+    }
+    
+    console.log(arrayDelete);
+}
+
+
+async function borrarSeleccion(e) {
+
+
+    let cantidadEliminar = arrayDelete.length;    
+    e.preventDefault();
+
+    if(cantidadEliminar>1){
+
+        Swal.fire({
+            title: `¿Está seguro que desea eliminar a ${cantidadEliminar} usuarios?`,
+            showDenyButton: true,
+            showCancelButton: false,
+            confirmButtonText: `Aceptar`,
+            denyButtonText: `Cancelar`,
+        })
+        .then(async (result) => {
+            if (result.isConfirmed) {
+                try {
+
+                    const ext = '/v1/eliminarUsuariosSeleccionados/';
+                    const cuerpo = arrayDelete;
+
+                    const metodo = 'DELETE';
+
+                    const eliminarUsuarioSeleccion = await access(url, ext, cuerpo, metodo);
+
+                    if (eliminarUsuarioSeleccion.mensaje) {
+
+                        await Swal.fire("Eliminados!", "Usuarios Eliminados Correctamete.", "success");
+                        document.querySelector(".divTabla").innerHTML = "";
+                        arrayDelete=[];
+                        location.reload();
+
+                    } else if (eliminarUsuarioSeleccion.error) { Swal.fire("Atencion", eliminarUsuarioSeleccion.error, "error"); }
+
+                } catch (err) {
+                    Swal.fire("Atencion", error, "error");
+                }
+
+            } else if (result.isDenied) {
+                Swal.fire("Cancelado!", "Operacion Cancelada", "info");
+            }
+        })
+
+    }else{
+        if (cantidadEliminar=0){
+            await Swal.fire("Error", "Debe seleccionar los usuarios.", "error");
+        }else{
+            await Swal.fire("Error", "Debe seleccionar mas de un usuario.", "error");
+        }
+        
+    }
+    
+};

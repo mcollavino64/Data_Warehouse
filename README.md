@@ -10,9 +10,9 @@
 
 #3 - Crear base de datos 🔩
 
-En el gestor de bd crear un nuevo esquema con el nombre "data_warehouse"
+En el gestor de bd crear un nuevo esquema con el nombre "data_warehouse_2"
 
-#4 -Ejecutar en el gestor de base de datos el Archivo data_warehouse.sql para la creacion de las tablas y el insert de datos
+#4 -Ejecutar en el gestor de base de datos las consultas en scriptNuevo_DataWarehoyse.sql para la creacion de las tablas y el insert de datos
 
 #5- Editar el archivo config/config.js con los datos de su entorno.
 

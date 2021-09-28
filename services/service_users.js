@@ -34,8 +34,11 @@ module.exports.buscarUsuario = async (objUsuario) => {
             replacements: { usuario: objUsuario.usuario },
             type: sequelize.QueryTypes.SELECT
         });
+        
 
     return respuesta;
+
+    
 
 }
 
@@ -45,7 +48,7 @@ module.exports.crearUsuario = async (objUsuario) => {
 
     if (usuario) {
 
-        query = "INSERT INTO usuarios (usuario, nombre, apellido, email, contrasena, telefono, domicilio) VALUES (:usuario, :nombre, :apellido, :email, :contrasena, :telefono, :domicilio ) ";
+        query = "INSERT INTO usuarios (usuario, nombre, apellido, email, contrasena, telefono, domicilio,compania_companiaID) VALUES (:usuario, :nombre, :apellido, :email, :contrasena, :telefono, :domicilio ,1 ) ";
 
         const respuesta =
             sequelize.query(query, {
@@ -58,7 +61,6 @@ module.exports.crearUsuario = async (objUsuario) => {
     }
 
 }
-
 
 module.exports.editarUsuario = async (objUsuario) => {
 
@@ -80,7 +82,6 @@ module.exports.editarUsuario = async (objUsuario) => {
 
 }
 
-
 module.exports.eliminarUsuario = async (objUsuario) => {
 
     const id = objUsuario.id;
@@ -93,6 +94,29 @@ module.exports.eliminarUsuario = async (objUsuario) => {
             sequelize.query(query, {
                 replacements: { id },
                 type: sequelize.QueryTypes.DELETE
+            });
+
+        return respuesta;
+
+    }
+
+}
+
+module.exports.eliminarUsuariosSeleccionados = async (objUsuario) => {
+
+    const id = objUsuario;
+
+    // console.log('entra service ' + id)
+    if (id) {
+
+        query = "DELETE FROM usuarios WHERE id = :id";
+
+        const respuesta =
+            sequelize.query(query, {
+                replacements: { id },
+                type: sequelize.QueryTypes.DELETE
+            }).catch(function (err){
+                console.log("error" + error)
             });
 
         return respuesta;

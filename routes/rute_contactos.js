@@ -111,5 +111,24 @@ module.exports = (app) => {
 
     });
 
+    app.delete("/v1/eliminarContactosSeleccionados/" , async (req, res) => {
+                
+        let arraySeleccion = req.body;
+
+        arraySeleccion.forEach(element => {
+            const consultaUsuario =  contactosServicios.eliminarContactosSeleccionados(element);
+        });
+
+        res.status(201).json({
+            mensaje: `Usuarios eliminado correctamente ! `
+        });
+
+        //  res.status(400).json({ mensaje: "Error al Eliminar Usuario" }); }
+
+        console.log(res.status)
+        
+
+    });
+
     
 }

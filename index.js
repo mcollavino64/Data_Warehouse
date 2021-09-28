@@ -15,6 +15,10 @@ const btnEditarContacto = document.querySelector(".btnEditarContacto");
 const btnCompanias = document.querySelector('.btnCompanias');
 const btnPais = document.querySelector('.btnPais');
 const contenidoMostrar = document.querySelector(".mostrar_contenido");
+const btnCiudad = document.querySelector('.btnCiudad');
+const btnRegion = document.querySelector('.btnRegion');
+const btnCompania = document.querySelector('.btnCompania');
+
 
 
 const url = 'http://127.0.0.1:3001';
@@ -28,9 +32,6 @@ const access = async (url, ext, cuerpo, metodo) => {
             headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*',
-                // 'Access-Control-Allow-Credentials': 'true',
-                // 'Access-Control-Allow-Methods': 'GET,HEAD,OPTIONS,POST,PUT',
-                // 'Access-Control-Allow-Headers': 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization',              
                 'Authorization': bearer
             }
         });
@@ -84,12 +85,35 @@ btnLogin.addEventListener('click', async (e) => {
             $("#btnLogin").html(`Bienvenid@ al sitio ${usuario}`);
             $("#navbarResponsive ul li").show();
 
+            let isAdmin = JSON.stringify(ingreso.admin)
+
+            if (isAdmin != 1){
+                $('#span_admin').hide();
+                $(".btnUsuarios").hide();
+                $(".btnPais").hide();
+                $(".btnCiudad").hide();
+                $(".btnRegion").hide();                                
+                $(".btnCompania").hide();
+            }else{
+                $('#span_admin').show()
+                $('#span_admin').show();
+                $(".btnPais").show();
+                $(".btnCiudad").show();  
+                $(".btnRegion").show();
+                $(".btnCompania").show();
+            }
+            
+
             localStorage.setItem("Token", JSON.stringify(ingreso.token));
             localStorage.setItem("Usuario", JSON.stringify(usuario));
             localStorage.setItem("Admin", JSON.stringify(ingreso.admin));
 
             setTimeout(function () {
                 $('#login').modal('hide');
+
+                $("#btn_login").removeClass('btn-success');
+                $("#btn_login").addClass('btn-danger');
+
                 $(".btnIngreso").prop('disabled', true);
                 $(".btnRegistro").prop('disabled', true);
             }, 1000);
@@ -159,12 +183,16 @@ btnRegistrar.addEventListener('click', async (e) => {
 btnSalir.addEventListener('click', async (e) => {
     e.preventDefault();
     localStorage.clear();
+    $("#btn_login").removeClass('btn-danger');
+    $("#btn_login").addClass('btn-success');
+
     $(".btnIngreso").prop('disabled', false);
     $(".btnRegistro").prop('disabled', false);
     $(".btnTransferir").prop('disabled', true);
     $(".btnTransferencias").prop('disabled', true);
     $("#navbarResponsive ul li").hide();
     contenidoMostrar.innerHTML = "";
+    location.reload();
 });
 
 
@@ -183,11 +211,22 @@ document.addEventListener("DOMContentLoaded", function (event) {
         $('#login').modal('show');
     }
 
-    if (localStorage.getItem("Admin") == false) {
+    if ( localStorage.getItem("Admin") == 0 || localStorage.getItem("Admin") === null ){
 
+        $('#span_admin').hide();
         $(".btnUsuarios").hide();
-
-    }
+        $(".btnPais").hide();
+        $(".btnCiudad").hide();
+        $(".btnRegion").hide();            
+        $(".btnCompania").hide();                    
+    }else{
+        $('#span_admin').show()
+        $('#span_admin').show();
+        $(".btnPais").show();
+        $(".btnCiudad").show();  
+        $(".btnRegion").show();    
+        $(".btnCompania").show();
+    }                    
 
 });
 

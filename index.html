@@ -12,9 +12,15 @@
         href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+        
     <link rel="stylesheet" href="styles/estilo.css">
 
-    <link rel="icon" type="image/ico" href="favicon.ico">
+    <!-- <link rel="icon" type="image/ico" href="favicon.ico"> -->
+
+    
+
 
     <title>Data Warehouse</title>
 </head>
@@ -36,17 +42,19 @@
                         <a class="nav-link" href="index.html">Inicio<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item btnContactos"><a class="nav-link" href="#">Contactos</a></li>
-                    <li class="nav-item btnUsuarios"><a class="nav-link" href="#">Usuarios</a></li>
+                    <li id="btn_usuarios" class="nav-item btnUsuarios"><a class="nav-link" href="#">Usuarios</a></li>
+                    <li class="nav-item btnRegion"><a class="nav-link" href="#">Regiones</a></li>
                     <li class="nav-item btnPais"><a class="nav-link" href="#">Paises</a></li>
+                    <li class="nav-item btnCiudad"><a class="nav-link" href="#">Ciudades</a></li>                    
+                    <li class="nav-item btnCompania"><a class="nav-link" href="#">Compañias</a></li>
                 </ul>
+                <span id="span_admin" style="background-color:darkgreen; color: floralwhite; display: none;">ADMINISTRADOR</span>
             </div>
         </div>
     </nav>
 </header>
 
 <body class="d-flex flex-column">
-
-
     <div id="page-content">
 
         <div class="jumbotron text-center bg-info">
@@ -62,8 +70,6 @@
         </div>
 
         <div class="text-center mostrar_contenido"></div>
-
-
 
     </div>
 
@@ -88,7 +94,7 @@
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">Usuario</div>
                                 </div>
-                                <input type="text" class="form-control usuario" id="usuario" value="Macollavino"
+                                <input type="text" class="form-control usuario" id="usuario" 
                                     placeholder="Ingrese Usuario" required>
                             </div>
 
@@ -96,7 +102,7 @@
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">Contraseña</div>
                                 </div>
-                                <input type="password" class="form-control password" id="password" value="123"
+                                <input type="password" class="form-control password" id="password" 
                                     placeholder="Ingrese Contraseña" required>
                             </div>
                             <div class="col text-center">
@@ -108,7 +114,6 @@
             </div>
         </div>
     </div>
-
 
     <div class="modal fade" id="registro" tabindex="-1" role="dialog" aria-labelledby="modalRegistro"
         aria-hidden="true">
@@ -179,9 +184,7 @@
                                 <input type="text" class="form-control nuevoDomicilio" id="domicilio"
                                     placeholder="domicilio" required>
                             </div>
-
-                            <button type="submit"
-                                class="btn btn-success justify-content-center btnRegistrar">Registrarse</button>
+                            <button type="submit" class="btn btn-success justify-content-center btnRegistrar">Registrarse</button>
                         </form>
                     </div>
 
@@ -189,6 +192,7 @@
         </div>
     </div>
 
+    <!-- modal nuevo contacto -->
     <div class="modal fade" id="nuevoContacto" tabindex="-1" role="dialog" aria-labelledby="nuevoContacto"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -233,19 +237,41 @@
                             placeholder="Telefono">
                     </div>
 
-                    <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group mb-3 mr-sm-3">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Region</div>
+                            <div id='divRegionesContacto' class="input-group">
+
+                            </div>                                   
+                        </div>
+                        
                         <div class="input-group-prepend">
                             <div class="input-group-text">Pais</div>
-                        </div>
-                        <div class="selectNuevoPaisContacto"></div>
+                            <div id='divPaisesContacto' class="input-group">
+        
+                            </div>
+                                    
+                        </div>   
+                        
+                     
+
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Ciudad</div>
+                            <div id='divCiudadesContacto' class="input-group">
+        
+                            </div>
+                            <input type="hidden" id="ciudadIdAddContact">
+                            
+                        </div>                        
                     </div>
 
                     <div class="input-group mb-2 mr-sm-2">
                         <div class="input-group-prepend">
                             <div class="input-group-text">Compania</div>
-                        </div>
-                        <input type="text" class="form-control nuevaCompaniaContacto" id="nuevaCompaniaContacto"
-                            placeholder="Compania">
+                            <div id='divCompaniasContacto' class="input-group">    
+                            </div>
+                            <input type="hidden" id="companiaIdAddContact">
+                        </div>                                              
                     </div>
 
                     <div class="input-group mb-2 mr-sm-2">
@@ -331,19 +357,22 @@
                             placeholder="Telefono">
                     </div>
 
-                    <div class="input-group mb-2 mr-sm-2">
+                    <!-- <div class="input-group mb-2 mr-sm-2">
                         <div class="input-group-prepend">
                             <div class="input-group-text">Pais</div>
                         </div>
                         <div class="selectEditarPaisContacto"></div>
-                    </div>
+                    </div> -->
 
                     <div class="input-group mb-2 mr-sm-2">
                         <div class="input-group-prepend">
                             <div class="input-group-text">Compania</div>
+                            <div id='divCompaniasContactoEdit' class="input-group">    
+                            </div>
                         </div>
-                        <input type="text" class="form-control editarCompaniaContacto" id="editarCompaniaContacto"
-                            placeholder="Compania">
+                        <!-- <input type="text" class="form-control editarCompaniaContacto" id="editarCompaniaContacto"
+                            placeholder="Compania"> -->                           
+                            <input type="hidden" id="companiaIdAddContact">
                     </div>
 
                     <div class="input-group mb-2 mr-sm-2">
@@ -456,7 +485,6 @@
         </div>
     </div>
 
-
     <div class="modal fade" id="editarUsuario" tabindex="-1" role="dialog" aria-labelledby="editarUsuario"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
@@ -543,6 +571,195 @@
         </div>
     </div>
 
+    <!-- Modal Pais -->
+    <div class="modal fade" id="nuevoPais" tabindex="-1" role="dialog" aria-labelledby="nuevoPais" aria-hidden="true">        
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header border-bottom-0">
+                <h5 class="modal-title" id="nuevoPais">País</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body" id="modalPais">
+                <div class="input-group mb-2 mr-sm-2 lg-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Nombre</div>
+                    </div>
+                    <input type="text" class="form-control" id="nombreNuevoPais"
+                        placeholder="Nombre" required>
+                </div>
+
+                <div class="input-group mb-2 mr-sm-2" id="agregarPais">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">Seleccione Region</div>
+                    </div>
+                    
+                    
+                    <div id='divRegiones' class="input-group">
+
+                    </div>        
+
+                    <input type="hidden" id="idPaisModify">
+                
+                </div>
+
+                <button id="btn_modal_pais" type="button" onclick="crearPais()" class="btn btn-success ">Crear</button>
+
+            </div>
+
+        </div>
+        </div>
+    </div>
+
+    <!-- Modal Ciudad -->                     
+    <div class="modal fade" id="nuevoCiudad" tabindex="-1" role="dialog" aria-labelledby="nuevoCiudad" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                    <h5 class="modal-title" id="nuevoCiudad">CIUDAD</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+    
+                <div class="modal-body" id="modalCiudad">
+                    <div class="input-group mb-2 mr-sm-2 lg-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Nombre</div>
+                        </div>
+                        <input type="text" class="form-control" id="nombreNuevoCiudad" placeholder="Nombre" required>
+                    </div>
+    
+                    <div class="input-group mb-2 mr-sm-2" id="agregarCiudad">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Seleccione Pais</div>
+                        </div>
+    
+    
+                        <div id='divCiudades' class="input-group">
+    
+                        </div>
+    
+                        <input type="hidden" id="idCiudadModify">
+    
+                    </div>
+    
+                    <button id="btn_modal_ciudad" type="button" onclick="crearCiudad()"
+                        class="btn btn-success ">Crear</button>
+    
+                </div>
+    
+            </div>
+        </div>
+    </div>
+
+     <!-- Modal Region -->                     
+     <div class="modal fade" id="nuevoRegion" tabindex="-1" role="dialog" aria-labelledby="nuevoRegion" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                    <h5 class="modal-title" id="nuevoRegion">REGION</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+    
+                <div class="modal-body" id="modalRegion">
+                    <div class="input-group mb-2 mr-sm-2 lg-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Nombre</div>
+                        </div>
+                        <input type="text" class="form-control" id="nombreNuevoRegion" placeholder="Nombre" required>
+                    </div>
+    
+                    <div class="input-group mb-2 mr-sm-2" id="agregarRegion">
+                        <!-- <div class="input-group-prepend">
+                            <div class="input-group-text">Seleccione Pais</div>
+                        </div> -->
+    
+    
+                        <!-- <div id='divRegiones' class="input-group">
+    
+                        </div>         -->
+    
+                        <input type="hidden" id="idRegionModify">
+    
+                    </div>
+    
+                    <button id="btn_modal_region" type="button" onclick="crearRegion()"
+                        class="btn btn-success ">Crear</button>
+    
+                </div>
+    
+            </div>
+        </div>
+    </div>
+
+     <!-- Modal Compañias -->                     
+     <div class="modal fade" id="nuevoCompania" tabindex="-1" role="dialog" aria-labelledby="nuevoCompania" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                    <h5 class="modal-title" id="nuevoCompania">COMPAÑIA</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+    
+                <div class="modal-body" id="modalCompania">
+                    <div class="input-group mb-2 mr-sm-2 lg-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Nombre</div>
+                        </div>
+                        <input type="text" class="form-control" id="nombreNuevoCompania" placeholder="Nombre" required>
+                    </div>
+                    
+                    <input type="hidden" id="idCompaniaModify">
+
+                    <!-- <div class="input-group mb-2 mr-sm-2" id="agregarCompainia">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Seleccione Region</div>
+                        </div>
+    
+                        
+                        <div id='divRegiones' class="input-group">
+    
+                        </div> 
+
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Seleccione Pais</div>
+                        </div>
+
+                        <div id='divPaises' class="input-group">
+    
+                        </div>
+
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">Seleccione Ciudad</div>
+                        </div>
+
+                        <div id='divCiudades' class="input-group">
+    
+                        </div>        
+                            
+    
+                    </div> -->
+    
+                    <button id="btn_modal_compania_crear" type="button" onclick="crearCompania()"
+                        class="btn btn-success ">Crear</button>
+    
+                </div>
+    
+            </div>
+        </div>
+    </div>
+    
+
+
+    
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -556,6 +773,11 @@
     <script type="text/javascript" src="contactos.js"></script>
     <script type="text/javascript" src="usuarios.js"></script>
     <script type="text/javascript" src="paises.js"></script>
+    <script type="text/javascript" src="ciudades.js"></script>
+    <script type="text/javascript" src="regiones.js"></script>
+    <script type="text/javascript" src="companias.js"></script>
+
+        
 
     <footer id="sticky-footer" class="py-4 bg-secondary text-white-50">
         <div class="container text-center">

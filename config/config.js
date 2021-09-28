@@ -3,7 +3,7 @@ const SeqLibrary = require("sequelize");
 const conn =
 
 {
-    DATABASE: 'data_warehouse',
+    DATABASE: 'data_warehouse_2',
     DIALECT: 'mysql',
     HOST: 'localhost',
     PASSWORD: '',

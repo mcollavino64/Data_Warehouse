@@ -16,6 +16,10 @@ body {
   flex-shrink: none;
 }
 
+.btn_disabled{
+  background-color: gray;
+}
+
 
 .footer {
     background: #343a40!important;

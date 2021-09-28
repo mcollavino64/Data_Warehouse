@@ -114,12 +114,15 @@ module.exports = (app) => {
         if (!usuario || !contrasena) {
 
             res.status(404).json({
-                error: `Datos Incompletos !`
+                error: `Datos incompletos, ingresar usuario y contraseña `
             });
 
         } else {
 
             const usuBus = await usuariosServicios.buscarUsuario(req.body);
+
+            console.log(usuBus)
+
 
             if (usuBus.length > 0 && usuario == usuBus[0].usuario && contrasena == usuBus[0].contrasena) {
 
@@ -135,12 +138,42 @@ module.exports = (app) => {
                     admin : usuBus[0].admin
                 });
 
-            } else {
-                res.status(401).json({ error: "Usuario o Contrasena incorrecta" });
+            } else  {
+
+                if (usuBus.length==0){
+                    res.status(401).json({ error: "No existe el usuario ingresado" });
+                }else{
+                    res.status(401).json({ error: "Usuario o Contraseña incorrecta" });
+                }
+                
             }
 
         }
 
     });
+
+
+//////
+    app.delete("/v1/eliminarUsuariosSeleccionados/",esAdmin , async (req, res) => {
+        console.log('llegue al back')
+        
+        let arraySeleccion = req.body;
+
+        arraySeleccion.forEach(element => {
+            const consultaUsuario =  usuariosServicios.eliminarUsuariosSeleccionados(element);
+        });
+
+        res.status(201).json({
+            mensaje: `Usuarios eliminado correctamente ! `
+        });
+
+        //  res.status(400).json({ mensaje: "Error al Eliminar Usuario" }); }
+
+        console.log(res.status)
+        
+
+    });
+
+
 
 }
